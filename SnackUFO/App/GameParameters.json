@@ -1,0 +1,426 @@
+﻿{
+  "Actors": {
+    "MainActors": {
+      "MainEnemy": {
+        "hp": {
+          "explanation": "体力",
+          "value": 10.0
+        },
+        "radius": {
+          "explanation": "当たり判定の大きさ",
+          "value": 10.0
+        }
+      },
+      "Player": {
+        "affterShotTime": {
+          "explanation": "弾が自分のもとに戻ってから次に発射できるまでの時間",
+          "value": 0.5
+        },
+        "chargeVel": {
+          "explanation": "必殺技ゲージをためる速さはこの値/sec",
+          "value": 2.0
+        },
+        "damageCoe": {
+          "explanation": "通常弾の大きくなりやすさ",
+          "value": 0.2
+        },
+        "hp": {
+          "explanation": "体力",
+          "value": 12.0
+        },
+        "maxScale": {
+          "explanation": "通常弾のマックススケール",
+          "value": 3.0
+        },
+        "power": {
+          "explanation": "敵に与えるダメージ",
+          "value": 1.0
+        },
+        "radius": {
+          "explanation": "当たり判定の大きさ",
+          "value": 4.0
+        },
+        "speed": {
+          "explanation": "通常速度",
+          "value": 260.0
+        },
+        "unbeatableTime": {
+          "explanation": "無敵時間",
+          "value": 2.0
+        }
+      },
+      "preparationTime": {
+        "explanation": "MainActorが初期位置につくまでの時間",
+        "value": 1.0
+      }
+    }
+  },
+  "Barrage": {
+    "cakeDamage": {
+      "explanation": "ケーキのダメージ",
+      "value": 1.6
+    },
+    "chocoDamage": {
+      "explanation": "chocoのダメージ",
+      "value": 0.8
+    },
+    "chocoUfoDamage": {
+      "explanation": "チョコufoのダメージ",
+      "value": 1
+    },
+    "cupDamage": {
+      "explanation": "カップケーキのダメージ",
+      "value": 1.1
+    }
+  },
+  "Barrages": {
+    "ConstantRandomDirection": {
+      "bulletNum": {
+        "explanation": "連射で発射する弾数",
+        "value": 3
+      },
+      "bulletNumCoe": {
+        "explanation": "連射で発射する玉の個数はbulletNum+difficalty×これ",
+        "value": 0.4
+      },
+      "bulletSpeed": {
+        "explanation": "弾速",
+        "value": 160
+      },
+      "bulletSpeedCoe": {
+        "explanation": "弾速はbulletSpeed+difficalty×これ",
+        "value": 22
+      },
+      "difCoe": {
+        "explanation": "難易度調整係数(difficalty*difCoe)",
+        "value": 1
+      },
+      "enemyHp": {
+        "explanation": "敵のhp",
+        "value": 8
+      },
+      "numGun": {
+        "explanation": "銃の個数",
+        "value": 1
+      },
+      "numGunCoe": {
+        "explanation": "銃の個数はnumGun+int(difficalty×これ)",
+        "value": 0.39
+      },
+      "shotSpan": {
+        "explanation": "1連射が何秒か",
+        "value": 0.14
+      },
+      "shotSpanCoe": {
+        "explanation": "1連射の秒数はshotSpan+これ/difficalty",
+        "value": 0.3
+      },
+      "timeCoe": {
+        "explanation": "ランダム弾を飛ばす時間間隔は(timeSpan+difficalty×これ)",
+        "value": -0.24
+      },
+      "timeSpan": {
+        "explanation": "ランダム弾を飛ばす時間間隔",
+        "value": 2.5
+      }
+    },
+    "Scatter01": {
+      "Laser": {
+        "laserEnemyNum": {
+          "explanation": "レーザーを放つ雑魚敵の数",
+          "value": 0
+        },
+        "laserEnemyNumCoe": {
+          "explanation": "レーザーを放つ雑魚敵の数はlaserEnemyNum＋これ×difficalty",
+          "value": 1.5
+        },
+        "laserShotSpan": {
+          "explanation": "レーザーを撃つ時間間隔",
+          "value": 0.6
+        },
+        "laserSpeedCoe": {
+          "explanation": "レーザーのスピードは120+これ×difficalty",
+          "value": 40
+        },
+        "laserThick": {
+          "explanation": "レーザーの太さ",
+          "value": 5
+        },
+        "laserTime": {
+          "explanation": "レーザーを放つ時間",
+          "value": 1.4
+        },
+        "laserTimeCoe": {
+          "explanation": "レーザーを放つ時間はlaserTime+これ×difficalty",
+          "value": -0.1
+        },
+        "timeSpan": {
+          "explanation": "敵を一体放つ時間間隔",
+          "value": 0.2
+        }
+      },
+      "difCoe": {
+        "explanation": "難易度調整係数(difficalty*difCoe)",
+        "value": 1
+      },
+      "enemyHp": {
+        "explanation": "敵のhp",
+        "value": 17
+      },
+      "highSpeed": {
+        "explanation": "弾速の最高速度",
+        "value": 150
+      },
+      "highSpeedCoe": {
+        "explanation": "弾速の最高速度はhighSpeed+これ×difficalty",
+        "value": 5
+      },
+      "lowSpeed": {
+        "explanation": "弾速の最低速度",
+        "value": 50
+      },
+      "numBullet": {
+        "explanation": "散弾する弾の数",
+        "value": -1
+      },
+      "numBulletCoe": {
+        "explanation": "散弾する弾の数はnumBullet+これ×difficalty",
+        "value": 4
+      },
+      "range": {
+        "explanation": "散弾する範囲は(-これ)～(これ)",
+        "value": 40
+      },
+      "rangeH": {
+        "explanation": "動く範囲の高さ",
+        "value": 500
+      },
+      "rangeW": {
+        "explanation": "動く範囲の横幅",
+        "value": 340
+      },
+      "shotTime": {
+        "explanation": "動き出してから止まって銃を撃つまでの時間",
+        "value": 0.7
+      }
+    },
+    "ShotFollowTarget": {
+      "difCoe": {
+        "explanation": "難易度調整係数(difficalty*difCoe)",
+        "value": 1
+      },
+      "enemyHp": {
+        "explanation": "敵のhp",
+        "value": 10
+      },
+      "numGun": {
+        "explanation": "銃の個数",
+        "value": 1
+      },
+      "numGunCoe": {
+        "explanation": "銃の個数はnumGun+int(difficalty×これ)",
+        "value": 0.39
+      }
+    },
+    "SimpleRandomDirection": {
+      "bulletSpeed": {
+        "explanation": "弾速",
+        "value": 50
+      },
+      "bulletSpeedCoe": {
+        "explanation": "弾速はbulletSpeed+difficalty×これ",
+        "value": 22
+      },
+      "difCoe": {
+        "explanation": "難易度調整係数(difficalty*difCoe)",
+        "value": 1
+      },
+      "enemyHp": {
+        "explanation": "敵のhp",
+        "value": 10
+      },
+      "numGun": {
+        "explanation": "銃の個数",
+        "value": 0
+      },
+      "numGunCoe": {
+        "explanation": "銃の個数はnumGun+int(difficalty×これ)",
+        "value": 0.6
+      },
+      "timeCoe": {
+        "explanation": "ランダム弾を飛ばす時間間隔は(timeSpan-difficalty×これ)",
+        "value": 0.29
+      },
+      "timeSpan": {
+        "explanation": "ランダム弾を飛ばす時間間隔",
+        "value": 3.0
+      },
+      "transformRange": {
+        "explanation": "銃が移動できる範囲(shooterのまわりにこの数値に従った長方形範囲が生成される。また、長方形は銃の向きに追従)",
+        "value": "(150, 350)"
+      }
+    },
+    "Spiral01": {
+      "bulletSpeed": {
+        "explanation": "弾速",
+        "value": 120
+      },
+      "bulletSpeedCoe": {
+        "explanation": "弾速はbulletSpeed+difficalty×これ",
+        "value": 15
+      },
+      "difCoe": {
+        "explanation": "難易度調整係数(difficalty*difCoe)",
+        "value": 1
+      },
+      "enemyHp": {
+        "explanation": "敵のhp",
+        "value": 10
+      },
+      "numGun": {
+        "explanation": "放射状銃に追加する銃の数",
+        "value": 5
+      },
+      "numGunCoe": {
+        "explanation": "銃の個数はnumGun+int(difficalty×これ)",
+        "value": 0.99
+      },
+      "shotSpan": {
+        "explanation": "1連射が何秒か",
+        "value": 0.2
+      },
+      "shotSpanCoe": {
+        "explanation": "1連射の秒数はshotSpan+これ/difficalty",
+        "value": 0.1
+      },
+      "spinTime": {
+        "explanation": "放射状銃の１回転周期",
+        "value": 1.4
+      },
+      "spinTimeCoe": {
+        "explanation": "1回転周期はspinTime+これ/difficalty",
+        "value": 0.7
+      }
+    },
+    "binalyCircle": {
+      "difCoe": {
+        "explanation": "難易度調整係数",
+        "value": 1
+      },
+      "enemyHp": {
+        "explanation": "敵のhp",
+        "value": 14
+      },
+      "numGun": {
+        "explanation": "銃の個数",
+        "value": 8
+      },
+      "numGunCoe": {
+        "explanation": "銃の個数はnumGun+difficalty*これ",
+        "value": 0.8
+      },
+      "shotSpan": {
+        "explanation": "1連射が何秒か",
+        "value": 1
+      },
+      "shotSpanCoe": {
+        "explanation": "1連射の秒数はshotSpan+これ/difficalty",
+        "value": 1.4
+      }
+    },
+    "combinationBarrage": {
+      "aimShotTimeSpanCoe": {
+        "explanation": "0.7+これ*difficalty",
+        "value": 1
+      },
+      "difCoe": {
+        "explanation": "難易度調整係数",
+        "value": 1
+      },
+      "enemyHp": {
+        "explanation": "敵のhp",
+        "value": 30
+      },
+      "expTimeSpanCoe": {
+        "explanation": "爆発したとき、弾を放つ時間の間隔は0.01-これ*difficalty",
+        "value": 0.001
+      },
+      "numBulletCoe": {
+        "explanation": "爆発したとき放つ玉の数は30+これ＊difficalty",
+        "value": 5
+      },
+      "radiateShotSpanCoe": {
+        "explanation": "らせん弾幕　0.6-これ*difficalty",
+        "value": 0.05
+      },
+      "shotSpan": {
+        "explanation": "鞭弾幕を放つ時間間隔",
+        "value": 1
+      },
+      "shotTimeSpan": {
+        "explanation": "鞭弾幕の連射間隔0.7+これ*difficalty",
+        "value": 1
+      }
+    },
+    "sentakuki": {
+      "difCoe": {
+        "explanation": "難易度調整係数",
+        "value": 1
+      }
+    },
+    "shootingStar": {
+      "difCoe": {
+        "explanation": "難易度調整係数",
+        "value": 1
+      },
+      "enemyHp": {
+        "explanation": "敵のhp",
+        "value": 18
+      }
+    }
+  },
+  "GameScene": {
+    "difficalty": {
+      "1": {
+        "explanation": "easyモードのdifficaltyの値",
+        "value": 2
+      },
+      "2": {
+        "explanation": "normalモードのdifficaltyの値",
+        "value": 5
+      },
+      "3": {
+        "explanation": "hardモードのdifficaltyの値",
+        "value": 9
+      }
+    },
+    "fieldHeight": {
+      "explanation": "弾が存在できるフィールドの高さ",
+      "value": 840.0
+    },
+    "fieldPos": {
+      "explanation": "弾が存在できるフィールドの左上座標",
+      "value": "(130, -120)"
+    },
+    "fieldWidth": {
+      "explanation": "弾が存在できるフィールドの幅",
+      "value": 1190.0
+    },
+    "mainFieldHeight": {
+      "explanation": "プレイヤーなどが動ける範囲の縦の長さ",
+      "value": 600.0
+    },
+    "mainFieldPos": {
+      "explanation": "メインフィールドの左上座標",
+      "value": "(250, 0)"
+    },
+    "mainFieldWidth": {
+      "explanation": "プレイヤーなどが動ける範囲の横の長さ",
+      "value": 950.0
+    },
+    "preparationTime": {
+      "explanation": "ゲーム開始までの時間",
+      "value": 2.5
+    }
+  }
+}
