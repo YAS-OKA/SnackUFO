@@ -131,7 +131,7 @@ Object* maker::CreateActors::Player(GameObjectManager* objectManager)
 		animation1->loop = false;
 		animation1->setEndCondition(new prg::FuncCondition([=] {
 			if (player->GetComponent<Status<chargeGage>>(U"chargeGage")->value.value >= 9)behavior->progress->restartAction(U"chargeAni2");
-			return MouseR.up() or player->GetComponent<Status<chargeGage>>(U"chargeGage")->value.value >= 9; }));
+			return KeyEnter.up() or player->GetComponent<Status<chargeGage>>(U"chargeGage")->value.value >= 9; }));
 		chargeAnimation->add(animation1);
 		auto animation2 = createAnimation(tex, 0.15, { U"resource/annnaChargeAnimation/2.png",U"resource/annnaChargeAnimation/1.png" });
 		animation2->loop = false;
@@ -532,7 +532,7 @@ Object* maker::CreateActors::Player(GameObjectManager* objectManager)
 		actions->add(new prg::FuncAction(
 			[=](double dt, prg::FuncAction*)
 			{
-				if (MouseL.down() and (not MouseR.pressed()) and Cursor::OnClientRect())
+				if (KeyEnter.down() and (not behavior->progress->getAction(U"chargeAni")->isActive()))//KeyEnter.pressed()) and Cursor::OnClientRect())
 				{
 					auto action = bat->progress->getAction(U"shotAction");
 					if (not(action->getStarted() and (not action->getEnded())))	bat->progress->restartAction(U"shotAction");
@@ -601,7 +601,7 @@ Object* maker::CreateActors::Player(GameObjectManager* objectManager)
 				effectFigs->clearFigures();
 				effectAction->reset();
 			},
-				new prg::FuncCondition([=] {return MouseR.up(); })
+				new prg::FuncCondition([=] {return KeyEnter.up(); })
 		));
 		behavior->progress->setAction(effectAction, U"chargeEffect");
 
@@ -613,12 +613,12 @@ Object* maker::CreateActors::Player(GameObjectManager* objectManager)
 			[=](double dt, prg::FuncAction*)mutable
 			{
 				gage->value.colision = false;
-				if (MouseR.up())
+				if (KeyEnter.up() and behavior->progress->getAction(U"chargeAni")->isActive())
 				{
 					behavior->progress->restartAction(U"chargeAni2");
 				}
 				//
-				if (MouseR.pressed() and (not behavior->progress->getAction(U"attackAni")->isActive()))
+				if (KeyEnter.pressedDuration()>0.3s and (not behavior->progress->getAction(U"attackAni")->isActive()) and (not KeyEnter.up()))
 				{//チャージ
 					gage->value.value = Min(gage->value.value + vel * dt, maxHp - player->GetComponent<ActorState>()->hp);
 					if (gage->value.value >= 9) {
@@ -642,7 +642,7 @@ Object* maker::CreateActors::Player(GameObjectManager* objectManager)
 						ora2->visible = true;
 					}
 				}
-				else if (MouseR.up()and gage->value.value >= 9)
+				else if (KeyEnter.up()and gage->value.value >= 9)
 				{//発動
 					behavior->progress->restartAction(U"bomb");
 					behavior->GetComponent<ActorState>()->hp = maxHp;
